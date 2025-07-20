@@ -2,132 +2,169 @@ import json
 import os
 import sys
 import logging
+
+# Add current directory to Python path for imports
+current_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, current_dir)
+
+# Import project modules
+from config import *
 from data_loader import load_fitness_data
 from predictor import build_and_train_model, forecast_future
 from fitness_assessor import assess_fitness
 
-# Configure logging for better debugging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('fitness_predictor.log'),
-        logging.StreamHandler(sys.stdout)
-    ]
-)
-logger = logging.getLogger()
+def setup_logging():
+    """Configure logging for the application."""
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.FileHandler(LOG_FILE),
+            logging.StreamHandler(sys.stdout)
+        ]
+    )
+    return logging.getLogger()
 
-def check_setup(file_path):
-    """Verify that all required files and dependencies are present."""
-    logger.info("Checking project setup...")
-    
-    # Check for CSV file
-    if not os.path.exists(file_path):
-        logger.error(f"CSV file not found: {file_path}")
-        raise FileNotFoundError(f"CSV file not found: {file_path}")
-    
-    # Check for required scripts
-    required_scripts = ['data_loader.py', 'predictor.py', 'fitness_assessor.py']
-    for script in required_scripts:
-        if not os.path.exists(script):
-            logger.error(f"Required script not found: {script}")
-            raise FileNotFoundError(f"Required script not found: {script}")
-    
-    # Check for dependencies
+def create_directories():
+    """Create necessary output directories."""
+    directories = [DATA_DIR, OUTPUT_DIR, VISUALIZATION_DIR]
+    for directory in directories:
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+            print(f"Created directory: {directory}")
+
+def check_dependencies():
+    """Check if all required dependencies are installed."""
     try:
         import pandas
         import numpy
         import sklearn
+        print("✓ All required packages found")
+        return True
     except ImportError as e:
-        logger.error(f"Missing dependency: {e}")
-        raise ImportError(f"Missing dependency: {e}. Install with 'pip install pandas numpy scikit-learn'")
-    
-    logger.info("Setup check passed!")
+        print(f"✗ Missing dependency: {e}")
+        print("Please install with: pip install pandas numpy scikit-learn")
+        return False
 
-def run_fitness_predictor(file_path, output_file='fitness_predictions.json'):
-    """Main function to load data, predict metrics, assess fitness, and save results."""
-    logger.info("Starting Fitness Predictor...")
+def check_data_file():
+    """Check if the CSV data file exists."""
+    if not os.path.exists(CSV_FILE):
+        print(f"✗ CSV file not found: {CSV_FILE}")
+        print("Please ensure your CSV file is in the data/ directory")
+        return False
+    print(f"✓ Data file found: {CSV_FILE}")
+    return True
+
+def run_fitness_predictor():
+    """Main function to orchestrate the entire workflow."""
+    logger = setup_logging()
+    logger.info("=" * 50)
+    logger.info("Starting ML Fitness Predictor")
+    logger.info("=" * 50)
     
-    # Verify setup
+    # Create necessary directories
+    create_directories()
+    
+    # Check dependencies and data
+    if not check_dependencies() or not check_data_file():
+        logger.error("Prerequisites not met. Exiting.")
+        return False
+    
     try:
-        check_setup(file_path)
-    except (FileNotFoundError, ImportError) as e:
-        logger.error(f"Setup failed: {e}")
-        return {}
-    
-    # Load data
-    logger.info("Loading and cleaning data...")
-    try:
-        data = load_fitness_data(file_path)
-    except (FileNotFoundError, ValueError) as e:
-        logger.error(f"Data loading failed: {e}")
-        return {}
-    
-    # Metrics to predict
-    metrics = ['steps', 'calories', 'sleep_hours', 'water_intake_l']
-    
-    # Train models
-    logger.info("Training models...")
-    models = {}
-    for metric in metrics:
-        try:
-            models[metric] = build_and_train_model(data, metric)
-        except Exception as e:
-            logger.error(f"Failed to train model for {metric}: {e}")
-            return {}
-    
-    # Generate predictions
-    logger.info("Generating predictions...")
-    predictions = {}
-    for user_id in data['user_id'].unique():
-        predictions[user_id] = {}
-        for metric in metrics:
+        # Load and clean data
+        logger.info("Loading and cleaning data...")
+        data = load_fitness_data(CSV_FILE)
+        logger.info(f"Data loaded successfully: {len(data)} rows, {len(data['user_id'].unique())} users")
+        
+        # Train models for each metric
+        logger.info("Training models...")
+        models = {}
+        for metric in METRICS_TO_PREDICT:
             try:
-                future_forecasts = forecast_future(models[metric], data, user_id)
-                predictions[user_id][metric] = [
-                    {'day': int(day), 'value': float(round(value, 2))} for day, value in future_forecasts
-                ]
-                logger.info(f"Saved predictions for user {user_id}, {metric}")
-            except ValueError as e:
-                logger.error(f"Prediction error for user {user_id}, {metric}: {e}")
-                predictions[user_id][metric] = []
-    
-    # Assess fitness
-    logger.info("Assessing fitness levels...")
-    try:
+                models[metric] = build_and_train_model(data, metric)
+                logger.info(f"✓ Model trained for {metric}")
+            except Exception as e:
+                logger.error(f"✗ Failed to train model for {metric}: {e}")
+                return False
+        
+        # Generate predictions for all users
+        logger.info("Generating predictions...")
+        predictions = {}
+        failed_users = []
+        
+        for user_id in data['user_id'].unique():
+            predictions[user_id] = {}
+            user_failed = False
+            
+            for metric in METRICS_TO_PREDICT:
+                try:
+                    future_forecasts = forecast_future(models[metric], data, user_id, FORECAST_DAYS)
+                    predictions[user_id][metric] = [
+                        {'day': int(day), 'value': float(round(value, 2))} 
+                        for day, value in future_forecasts
+                    ]
+                except Exception as e:
+                    logger.warning(f"Prediction failed for user {user_id}, {metric}: {e}")
+                    predictions[user_id][metric] = []
+                    user_failed = True
+            
+            if user_failed:
+                failed_users.append(user_id)
+            else:
+                logger.info(f"✓ Predictions generated for user {user_id}")
+        
+        if failed_users:
+            logger.warning(f"Predictions failed for users: {failed_users}")
+        
+        # Assess fitness levels
+        logger.info("Assessing fitness levels...")
         assessments = assess_fitness(predictions)
-    except Exception as e:
-        logger.error(f"Fitness assessment failed: {e}")
-        return {}
-    
-    # Combine predictions and assessments
-    output = {
-        'predictions': predictions,
-        'assessments': assessments
-    }
-    
-    # Save to JSON
-    logger.info(f"Saving results to {output_file}...")
-    try:
-        with open(output_file, 'w') as f:
+        
+        # Combine results
+        output = {
+            'metadata': {
+                'total_users': len(data['user_id'].unique()),
+                'prediction_days': FORECAST_DAYS,
+                'metrics': METRICS_TO_PREDICT,
+                'failed_users': failed_users
+            },
+            'predictions': predictions,
+            'assessments': assessments
+        }
+        
+        # Save results
+        logger.info(f"Saving results to {PREDICTIONS_FILE}...")
+        with open(PREDICTIONS_FILE, 'w') as f:
             json.dump(output, f, indent=2)
-        logger.info(f"Results saved to {output_file}")
+        
+        # Log summary
+        logger.info("=" * 50)
+        logger.info("EXECUTION SUMMARY")
+        logger.info("=" * 50)
+        logger.info(f"✓ Data loaded: {len(data)} rows")
+        logger.info(f"✓ Models trained: {len(models)}")
+        logger.info(f"✓ Users processed: {len(predictions)}")
+        logger.info(f"✓ Results saved to: {PREDICTIONS_FILE}")
+        
+        if failed_users:
+            logger.warning(f"⚠ Failed users: {len(failed_users)}")
+        
+        # Sample output for first user
+        first_user = list(predictions.keys())[0] if predictions else None
+        if first_user:
+            logger.info(f"\nSample results for User {first_user}:")
+            logger.info(f"Fitness Level: {assessments[first_user]['fitness_level']}")
+            logger.info(f"Fitness Score: {assessments[first_user]['fitness_score']}")
+        
+        logger.info("✓ ML Fitness Predictor completed successfully!")
+        return True
+        
     except Exception as e:
-        logger.error(f"Failed to save results: {e}")
-        return {}
-    
-    # Preview for User 1
-    logger.info("Sample results for User 1:")
-    logger.info(json.dumps(output['predictions'].get('1', {}), indent=2))
-    logger.info("Fitness Assessment for User 1:")
-    logger.info(json.dumps(output['assessments'].get('1', {}), indent=2))
-    
-    return output
+        logger.error(f"Execution failed: {e}")
+        logger.exception("Full error traceback:")
+        return False
 
 if __name__ == "__main__":
-    csv_file_path = "E:\\SUMMER_PROJECT_CPP\\ML\\fitness_logs_15users_15days.csv"
-    try:
-        run_fitness_predictor(csv_file_path)
-        logger.info("Fitness predictions and assessments complete!")
-    except Exception as e:
-        logger.error(f"Process failed: {e}")
+    success = run_fitness_predictor()
+    if not success:
+        sys.exit(1)

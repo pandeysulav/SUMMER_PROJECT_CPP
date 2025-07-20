@@ -3,21 +3,39 @@ def assess_fitness(predictions):
     print("Assessing fitness levels...")
     assessments = {}
     
+    if not predictions:
+        print("✗ No predictions provided for assessment")
+        return assessments
+    
     for user_id, metrics in predictions.items():
-        # Calculate average predicted values
-        steps_avg = sum(p['value'] for p in metrics.get('steps', [])) / len(metrics.get('steps', [])) if metrics.get('steps') else 0
-        calories_avg = sum(p['value'] for p in metrics.get('calories', [])) / len(metrics.get('calories', [])) if metrics.get('calories') else 0
-        sleep_avg = sum(p['value'] for p in metrics.get('sleep_hours', [])) / len(metrics.get('sleep_hours', [])) if metrics.get('sleep_hours') else 0
-        water_avg = sum(p['value'] for p in metrics.get('water_intake_l', [])) / len(metrics.get('water_intake_l', [])) if metrics.get('water_intake_l') else 0
+        print(f"Assessing user {user_id}...")
         
-        # Normalize metrics to 0-100 scale
-        steps_score = min(max((steps_avg - 3000) / (12000 - 3000) * 100, 0), 100)
-        calories_score = min(max((calories_avg - 1900) / (2900 - 1900) * 100, 0), 100)
-        sleep_score = min(max((sleep_avg - 6) / (8.5 - 6) * 100, 0), 100)
-        water_score = min(max((water_avg - 2) / (3.5 - 2) * 100, 0), 100)
+        # Calculate average predicted values with safe division
+        steps_list = metrics.get('steps', [])
+        calories_list = metrics.get('calories', [])
+        sleep_list = metrics.get('sleep_hours', [])
+        water_list = metrics.get('water_intake_l', [])
+        
+        # Calculate averages safely
+        steps_avg = sum(p['value'] for p in steps_list) / len(steps_list) if steps_list else 0
+        calories_avg = sum(p['value'] for p in calories_list) / len(calories_list) if calories_list else 0
+        sleep_avg = sum(p['value'] for p in sleep_list) / len(sleep_list) if sleep_list else 0
+        water_avg = sum(p['value'] for p in water_list) / len(water_list) if water_list else 0
+        
+        # Normalize metrics to 0-100 scale with safe division
+        def safe_normalize(value, min_val, max_val):
+            if max_val == min_val:
+                return 50  # Default score if range is 0
+            return min(max((value - min_val) / (max_val - min_val) * 100, 0), 100)
+        
+        steps_score = safe_normalize(steps_avg, 3000, 12000) if steps_avg > 0 else 0
+        calories_score = safe_normalize(calories_avg, 1900, 2900) if calories_avg > 0 else 0
+        sleep_score = safe_normalize(sleep_avg, 6, 8.5) if sleep_avg > 0 else 0
+        water_score = safe_normalize(water_avg, 2, 3.5) if water_avg > 0 else 0
         
         # Calculate overall fitness score
-        fitness_score = (steps_score + calories_score + sleep_score + water_score) / 4
+        scores = [s for s in [steps_score, calories_score, sleep_score, water_score] if s > 0]
+        fitness_score = sum(scores) / len(scores) if scores else 0
         
         # Determine fitness level
         if fitness_score < 50:
@@ -27,26 +45,47 @@ def assess_fitness(predictions):
         else:
             fitness_level = "Fit"
         
-        # Generate recommendations
+        # Generate specific recommendations
         recommendations = []
+        
         if steps_avg < 7000:
-            recommendations.append("Increase daily steps by walking or light exercise.")
+            recommendations.append(f"Increase daily steps by walking or light exercise. Current average: {steps_avg:.0f} steps/day, target: 7000+")
+        
         if calories_avg < 2000:
-            recommendations.append("Ensure adequate calorie intake for energy needs.")
+            recommendations.append(f"Ensure adequate calorie intake for energy needs. Current average: {calories_avg:.0f} calories/day")
         elif calories_avg > 2900:
-            recommendations.append("Monitor calorie intake to avoid excess.")
+            recommendations.append(f"Monitor calorie intake to avoid excess. Current average: {calories_avg:.0f} calories/day")
+        
         if sleep_avg < 6.5:
-            recommendations.append("Aim for 7-8 hours of sleep per night.")
+            recommendations.append(f"Aim for 7-8 hours of sleep per night. Current average: {sleep_avg:.1f} hours/night")
         elif sleep_avg > 8.5:
-            recommendations.append("Avoid oversleeping; maintain a consistent schedule.")
+            recommendations.append(f"Avoid oversleeping; maintain a consistent schedule. Current average: {sleep_avg:.1f} hours/night")
+        
         if water_avg < 2.5:
-            recommendations.append("Drink more water, aiming for 2.5-3.5 liters daily.")
+            recommendations.append(f"Drink more water, aiming for 2.5-3.5 liters daily. Current average: {water_avg:.1f}L/day")
+        
+        if not recommendations:
+            recommendations.append("Great job! Maintain your current fitness routine!")
         
         assessments[user_id] = {
             'fitness_score': round(fitness_score, 2),
             'fitness_level': fitness_level,
-            'recommendations': recommendations or ["Maintain your current fitness routine!"]
+            'average_metrics': {
+                'steps': round(steps_avg, 2),
+                'calories': round(calories_avg, 2),
+                'sleep_hours': round(sleep_avg, 2),
+                'water_intake_l': round(water_avg, 2)
+            },
+            'component_scores': {
+                'steps_score': round(steps_score, 2),
+                'calories_score': round(calories_score, 2),
+                'sleep_score': round(sleep_score, 2),
+                'water_score': round(water_score, 2)
+            },
+            'recommendations': recommendations
         }
-        print(f"Assessed fitness for user {user_id}: {fitness_level}")
+        
+        print(f"✓ User {user_id}: {fitness_level} (Score: {fitness_score:.1f})")
     
+    print(f"✓ Fitness assessment completed for {len(assessments)} users")
     return assessments
