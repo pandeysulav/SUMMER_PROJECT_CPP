@@ -19,7 +19,7 @@ def setup_logging():
         level=logging.INFO,
         format='%(asctime)s - %(levelname)s - %(message)s',
         handlers=[
-            logging.FileHandler(LOG_FILE),
+            logging.FileHandler(LOG_FILE, encoding='utf-8'),  # Added UTF-8 encoding
             logging.StreamHandler(sys.stdout)
         ]
     )
@@ -39,20 +39,20 @@ def check_dependencies():
         import pandas
         import numpy
         import sklearn
-        print("✓ All required packages found")
+        print("[OK] All required packages found")
         return True
     except ImportError as e:
-        print(f"✗ Missing dependency: {e}")
+        print(f"[ERROR] Missing dependency: {e}")
         print("Please install with: pip install pandas numpy scikit-learn")
         return False
 
 def check_data_file():
     """Check if the CSV data file exists."""
     if not os.path.exists(CSV_FILE):
-        print(f"✗ CSV file not found: {CSV_FILE}")
+        print(f"[ERROR] CSV file not found: {CSV_FILE}")
         print("Please ensure your CSV file is in the data/ directory")
         return False
-    print(f"✓ Data file found: {CSV_FILE}")
+    print(f"[OK] Data file found: {CSV_FILE}")
     return True
 
 def run_fitness_predictor():
@@ -82,9 +82,9 @@ def run_fitness_predictor():
         for metric in METRICS_TO_PREDICT:
             try:
                 models[metric] = build_and_train_model(data, metric)
-                logger.info(f"✓ Model trained for {metric}")
+                logger.info(f"[OK] Model trained for {metric}")
             except Exception as e:
-                logger.error(f"✗ Failed to train model for {metric}: {e}")
+                logger.error(f"[ERROR] Failed to train model for {metric}: {e}")
                 return False
         
         # Generate predictions for all users
@@ -96,8 +96,10 @@ def run_fitness_predictor():
             predictions[user_id] = {}
             user_failed = False
             
+            # Predict for each metric only once
             for metric in METRICS_TO_PREDICT:
                 try:
+                    logger.info(f"Making predictions for user {user_id}, metric {metric}...")
                     future_forecasts = forecast_future(models[metric], data, user_id, FORECAST_DAYS)
                     predictions[user_id][metric] = [
                         {'day': int(day), 'value': float(round(value, 2))} 
@@ -111,10 +113,10 @@ def run_fitness_predictor():
             if user_failed:
                 failed_users.append(user_id)
             else:
-                logger.info(f"✓ Predictions generated for user {user_id}")
+                logger.info(f"[OK] Predictions generated for user {user_id}")
         
         if failed_users:
-            logger.warning(f"Predictions failed for users: {failed_users}")
+            logger.warning(f"Failed users: {failed_users}")
         
         # Assess fitness levels
         logger.info("Assessing fitness levels...")
@@ -134,20 +136,20 @@ def run_fitness_predictor():
         
         # Save results
         logger.info(f"Saving results to {PREDICTIONS_FILE}...")
-        with open(PREDICTIONS_FILE, 'w') as f:
+        with open(PREDICTIONS_FILE, 'w', encoding='utf-8') as f:  # Added UTF-8 encoding
             json.dump(output, f, indent=2)
         
         # Log summary
         logger.info("=" * 50)
         logger.info("EXECUTION SUMMARY")
         logger.info("=" * 50)
-        logger.info(f"✓ Data loaded: {len(data)} rows")
-        logger.info(f"✓ Models trained: {len(models)}")
-        logger.info(f"✓ Users processed: {len(predictions)}")
-        logger.info(f"✓ Results saved to: {PREDICTIONS_FILE}")
+        logger.info(f"[OK] Data loaded: {len(data)} rows")
+        logger.info(f"[OK] Models trained: {len(models)}")
+        logger.info(f"[OK] Users processed: {len(predictions)}")
+        logger.info(f"[OK] Results saved to: {PREDICTIONS_FILE}")
         
         if failed_users:
-            logger.warning(f"⚠ Failed users: {len(failed_users)}")
+            logger.warning(f"WARNING: Failed users: {len(failed_users)}")
         
         # Sample output for first user
         first_user = list(predictions.keys())[0] if predictions else None
@@ -156,7 +158,7 @@ def run_fitness_predictor():
             logger.info(f"Fitness Level: {assessments[first_user]['fitness_level']}")
             logger.info(f"Fitness Score: {assessments[first_user]['fitness_score']}")
         
-        logger.info("✓ ML Fitness Predictor completed successfully!")
+        logger.info("[OK] ML Fitness Predictor completed successfully!")
         return True
         
     except Exception as e:
