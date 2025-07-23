@@ -1,6 +1,8 @@
 #include <iostream>  // Include the input-output stream library
+using namespace std;
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;  // Print message to the console
+    cout << "Hello, World!" << endl;  // Print message to the console
+    cout << "Code written by Shreyana" << endl;
     return 0;  // Exit the program
 }
