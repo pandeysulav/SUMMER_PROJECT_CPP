@@ -15,8 +15,10 @@ VISUALIZATION_DIR = os.path.join(OUTPUT_DIR, 'visualizations')
 # -------------------------------
 # File paths
 # -------------------------------
-CSV_FILE = os.path.join(DATA_DIR, 'fitness_logs_15users_15days.csv')
+CSV_FILENAME = "fitness_logs_15users_15days.csv"
+CSV_PATH = os.path.join(DATA_DIR, CSV_FILENAME)
 PREDICTIONS_FILE = os.path.join(OUTPUT_DIR, 'fitness_predictions.json')
+REPORT_PATH = os.path.join(OUTPUT_DIR, 'report.txt')   # Added here
 LOG_FILE = os.path.join(BASE_DIR, 'fitness_predictor.log')
 
 # -------------------------------
