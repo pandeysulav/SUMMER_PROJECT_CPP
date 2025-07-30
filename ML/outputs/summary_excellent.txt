@@ -1,0 +1,132 @@
+==================================================
+ML Fitness Predictor: User Fitness Summary (Excellent)
+==================================================
+
+Generated on: July 29, 2025
+
+This report summarizes fitness assessments for 15 users based on predictions
+from the ML Fitness Predictor, using data from July 3, 2025, to July 17, 2025.
+The following sections provide fitness scores and personalized recommendations.
+
+Fitness Scores
+--------------------------------------------------
+User ID | Fitness Score | Fitness Level
+--------------------------------------------------
+1       |        85.88 | Excellent
+2       |        90.38 | Excellent
+3       |        88.41 | Excellent
+4       |        92.11 | Excellent
+5       |        85.00 | Excellent
+6       |        85.00 | Excellent
+7       |        86.19 | Excellent
+8       |        85.00 | Excellent
+9       |        85.45 | Excellent
+10      |        87.31 | Excellent
+11      |        86.82 | Excellent
+12      |        85.86 | Excellent
+13      |        85.94 | Excellent
+14      |        87.42 | Excellent
+15      |        86.94 | Excellent
+
+Personalized Recommendations
+--------------------------------------------------
+User 1 (Fitness Score: 85.88, Excellent)
+  - Maintain balanced calorie intake. Current avg (adjusted): 2922 calories/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current avg (adjusted): 2.5L/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+
+User 2 (Fitness Score: 90.38, Excellent)
+  - Maintain balanced calorie intake. Current avg (adjusted): 3172 calories/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current avg (adjusted): 2.7L/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+
+User 3 (Fitness Score: 88.41, Excellent)
+  - Maintain balanced calorie intake. Current avg (adjusted): 3077 calories/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current avg (adjusted): 2.6L/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+
+User 4 (Fitness Score: 92.11, Excellent)
+  - Maintain balanced calorie intake. Current avg (adjusted): 2993 calories/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current avg (adjusted): 2.7L/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+
+User 5 (Fitness Score: 85.00, Excellent)
+  - Maintain balanced calorie intake. Current avg (adjusted): 2992 calories/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+  - Optimize sleep to 7.5-8.5 hours for peak performance. Current avg (adjusted): 6.9 hours/night
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current avg (adjusted): 2.6L/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+
+User 6 (Fitness Score: 85.00, Excellent)
+  - Maintain balanced calorie intake. Current avg (adjusted): 2817 calories/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current avg (adjusted): 2.5L/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+
+User 7 (Fitness Score: 86.19, Excellent)
+  - Maintain balanced calorie intake. Current avg (adjusted): 3040 calories/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current avg (adjusted): 2.6L/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+
+User 8 (Fitness Score: 85.00, Excellent)
+  - Maintain balanced calorie intake. Current avg (adjusted): 3058 calories/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current avg (adjusted): 2.5L/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+
+User 9 (Fitness Score: 85.45, Excellent)
+  - Maintain balanced calorie intake. Current avg (adjusted): 3036 calories/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+  - Optimize sleep to 7.5-8.5 hours for peak performance. Current avg (adjusted): 7.0 hours/night
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current avg (adjusted): 2.6L/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+
+User 10 (Fitness Score: 87.31, Excellent)
+  - Maintain balanced calorie intake. Current avg (adjusted): 3071 calories/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current avg (adjusted): 2.7L/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+
+User 11 (Fitness Score: 86.82, Excellent)
+  - Maintain balanced calorie intake. Current avg (adjusted): 3020 calories/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current avg (adjusted): 2.6L/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+
+User 12 (Fitness Score: 85.86, Excellent)
+  - Maintain balanced calorie intake. Current avg (adjusted): 3089 calories/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+  - Optimize sleep to 7.5-8.5 hours for peak performance. Current avg (adjusted): 7.0 hours/night
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current avg (adjusted): 2.6L/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+
+User 13 (Fitness Score: 85.94, Excellent)
+  - Maintain balanced calorie intake. Current avg (adjusted): 3036 calories/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current avg (adjusted): 2.6L/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+
+User 14 (Fitness Score: 87.42, Excellent)
+  - Maintain balanced calorie intake. Current avg (adjusted): 3038 calories/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current avg (adjusted): 2.6L/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+
+User 15 (Fitness Score: 86.94, Excellent)
+  - Maintain balanced calorie intake. Current avg (adjusted): 2991 calories/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current avg (adjusted): 2.6L/day
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week.
+
+==================================================
+End of Report
+Generated by ML Fitness Predictor
+==================================================

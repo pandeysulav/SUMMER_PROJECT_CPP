@@ -1,0 +1,110 @@
+==================================================
+ML Fitness Predictor: User Fitness Summary (Good)
+==================================================
+
+Generated on: July 29, 2025
+
+This report summarizes fitness assessments for 15 users based on predictions
+from the ML Fitness Predictor, using data from July 3, 2025, to July 17, 2025.
+
+Fitness Scores
+--------------------------------------------------
+User ID | Fitness Score | Fitness Level
+--------------------------------------------------
+1       |        70.00 | Good
+2       |        70.00 | Good
+3       |        70.00 | Good
+4       |        70.00 | Good
+5       |        70.00 | Good
+6       |        70.00 | Good
+7       |        70.00 | Good
+8       |        70.00 | Good
+9       |        70.00 | Good
+10      |        70.00 | Good
+11      |        70.00 | Good
+12      |        70.00 | Good
+13      |        70.00 | Good
+14      |        70.00 | Good
+15      |        70.00 | Good
+
+Personalized Recommendations
+--------------------------------------------------
+User 1 (Fitness Score: 70.00, Good)
+  - Monitor calorie intake to avoid excess. Current average: 2681 calories/day
+  - Drink more water, aiming for 2.5-3.5 liters daily. Current average: 1.1L/day
+  - Aim for 7-8 hours of sleep per night. Current average: 5.2 hours/night
+
+User 2 (Fitness Score: 70.00, Good)
+  - Monitor calorie intake to avoid excess. Current average: 2700 calories/day
+  - Drink more water, aiming for 2.5-3.5 liters daily. Current average: 0.8L/day
+  - Aim for 7-8 hours of sleep per night. Current average: 5.4 hours/night
+
+User 3 (Fitness Score: 70.00, Good)
+  - Monitor calorie intake to avoid excess. Current average: 2650 calories/day
+  - Drink more water, aiming for 2.5-3.5 liters daily. Current average: 0.4L/day
+  - Aim for 7-8 hours of sleep per night. Current average: 5.0 hours/night
+
+User 4 (Fitness Score: 70.00, Good)
+  - Monitor calorie intake to avoid excess. Current average: 2638 calories/day
+  - Drink more water, aiming for 2.5-3.5 liters daily. Current average: 0.2L/day
+  - Aim for 7-8 hours of sleep per night. Current average: 4.4 hours/night
+
+User 5 (Fitness Score: 70.00, Good)
+  - Monitor calorie intake to avoid excess. Current average: 2438 calories/day
+  - Drink more water, aiming for 2.5-3.5 liters daily. Current average: 0.0L/day
+  - Aim for 7-8 hours of sleep per night. Current average: 4.2 hours/night
+
+User 6 (Fitness Score: 70.00, Good)
+  - Monitor calorie intake to avoid excess. Current average: 2577 calories/day
+  - Drink more water, aiming for 2.5-3.5 liters daily. Current average: 1.0L/day
+  - Aim for 7-8 hours of sleep per night. Current average: 5.8 hours/night
+
+User 7 (Fitness Score: 70.00, Good)
+  - Monitor calorie intake to avoid excess. Current average: 2603 calories/day
+  - Drink more water, aiming for 2.5-3.5 liters daily. Current average: 0.8L/day
+  - Aim for 7-8 hours of sleep per night. Current average: 4.8 hours/night
+
+User 8 (Fitness Score: 70.00, Good)
+  - Monitor calorie intake to avoid excess. Current average: 2774 calories/day
+  - Drink more water, aiming for 2.5-3.5 liters daily. Current average: 0.4L/day
+  - Aim for 7-8 hours of sleep per night. Current average: 4.8 hours/night
+
+User 9 (Fitness Score: 70.00, Good)
+  - Monitor calorie intake to avoid excess. Current average: 2710 calories/day
+  - Drink more water, aiming for 2.5-3.5 liters daily. Current average: 0.6L/day
+  - Aim for 7-8 hours of sleep per night. Current average: 4.2 hours/night
+
+User 10 (Fitness Score: 70.00, Good)
+  - Monitor calorie intake to avoid excess. Current average: 2875 calories/day
+  - Drink more water, aiming for 2.5-3.5 liters daily. Current average: 0.0L/day
+  - Aim for 7-8 hours of sleep per night. Current average: 4.0 hours/night
+
+User 11 (Fitness Score: 70.00, Good)
+  - Monitor calorie intake to avoid excess. Current average: 2849 calories/day
+  - Drink more water, aiming for 2.5-3.5 liters daily. Current average: 1.0L/day
+  - Aim for 7-8 hours of sleep per night. Current average: 6.0 hours/night
+
+User 12 (Fitness Score: 70.00, Good)
+  - Monitor calorie intake to avoid excess. Current average: 2796 calories/day
+  - Drink more water, aiming for 2.5-3.5 liters daily. Current average: 0.6L/day
+  - Aim for 7-8 hours of sleep per night. Current average: 4.4 hours/night
+
+User 13 (Fitness Score: 70.00, Good)
+  - Monitor calorie intake to avoid excess. Current average: 2445 calories/day
+  - Drink more water, aiming for 2.5-3.5 liters daily. Current average: 0.4L/day
+  - Aim for 7-8 hours of sleep per night. Current average: 4.7 hours/night
+
+User 14 (Fitness Score: 70.00, Good)
+  - Monitor calorie intake to avoid excess. Current average: 2472 calories/day
+  - Drink more water, aiming for 2.5-3.5 liters daily. Current average: 0.0L/day
+  - Aim for 7-8 hours of sleep per night. Current average: 4.1 hours/night
+
+User 15 (Fitness Score: 70.00, Good)
+  - Monitor calorie intake to avoid excess. Current average: 2560 calories/day
+  - Drink more water, aiming for 2.5-3.5 liters daily. Current average: 0.0L/day
+  - Aim for 7-8 hours of sleep per night. Current average: 4.3 hours/night
+
+==================================================
+End of Report
+Generated by ML Fitness Predictor
+==================================================

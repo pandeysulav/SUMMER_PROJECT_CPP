@@ -1,0 +1,125 @@
+==================================================
+ML Fitness Predictor: User Fitness Summary (Excellent)
+==================================================
+
+Generated on: July 29, 2025
+
+This report summarizes fitness assessments for 15 users based on predictions
+from the ML Fitness Predictor, using data from July 3, 2025, to July 17, 2025.
+
+Fitness Scores
+--------------------------------------------------
+User ID | Fitness Score | Fitness Level
+--------------------------------------------------
+1       |        85.00 | Excellent
+2       |        85.00 | Excellent
+3       |        85.00 | Excellent
+4       |        85.00 | Excellent
+5       |        85.00 | Excellent
+6       |        85.00 | Excellent
+7       |        85.00 | Excellent
+8       |        85.00 | Excellent
+9       |        85.00 | Excellent
+10      |        85.00 | Excellent
+11      |        85.00 | Excellent
+12      |        85.00 | Excellent
+13      |        85.00 | Excellent
+14      |        85.00 | Excellent
+15      |        85.00 | Excellent
+
+Personalized Recommendations
+--------------------------------------------------
+User 1 (Fitness Score: 85.00, Excellent)
+  - Maintain balanced calorie intake. Current average: 2681 calories/day
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current average: 1.1L/day
+  - Optimize sleep to 7.5-8.5 hours for peak performance. Current average: 5.2 hours/night
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week to sustain fitness.
+
+User 2 (Fitness Score: 85.00, Excellent)
+  - Maintain balanced calorie intake. Current average: 2700 calories/day
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current average: 0.8L/day
+  - Optimize sleep to 7.5-8.5 hours for peak performance. Current average: 5.4 hours/night
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week to sustain fitness.
+
+User 3 (Fitness Score: 85.00, Excellent)
+  - Maintain balanced calorie intake. Current average: 2650 calories/day
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current average: 0.4L/day
+  - Optimize sleep to 7.5-8.5 hours for peak performance. Current average: 5.0 hours/night
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week to sustain fitness.
+
+User 4 (Fitness Score: 85.00, Excellent)
+  - Maintain balanced calorie intake. Current average: 2638 calories/day
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current average: 0.2L/day
+  - Optimize sleep to 7.5-8.5 hours for peak performance. Current average: 4.4 hours/night
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week to sustain fitness.
+
+User 5 (Fitness Score: 85.00, Excellent)
+  - Maintain balanced calorie intake. Current average: 2438 calories/day
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current average: 0.0L/day
+  - Optimize sleep to 7.5-8.5 hours for peak performance. Current average: 4.2 hours/night
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week to sustain fitness.
+
+User 6 (Fitness Score: 85.00, Excellent)
+  - Maintain balanced calorie intake. Current average: 2577 calories/day
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current average: 1.0L/day
+  - Optimize sleep to 7.5-8.5 hours for peak performance. Current average: 5.8 hours/night
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week to sustain fitness.
+
+User 7 (Fitness Score: 85.00, Excellent)
+  - Maintain balanced calorie intake. Current average: 2603 calories/day
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current average: 0.8L/day
+  - Optimize sleep to 7.5-8.5 hours for peak performance. Current average: 4.8 hours/night
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week to sustain fitness.
+
+User 8 (Fitness Score: 85.00, Excellent)
+  - Maintain balanced calorie intake. Current average: 2774 calories/day
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current average: 0.4L/day
+  - Optimize sleep to 7.5-8.5 hours for peak performance. Current average: 4.8 hours/night
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week to sustain fitness.
+
+User 9 (Fitness Score: 85.00, Excellent)
+  - Maintain balanced calorie intake. Current average: 2710 calories/day
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current average: 0.6L/day
+  - Optimize sleep to 7.5-8.5 hours for peak performance. Current average: 4.2 hours/night
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week to sustain fitness.
+
+User 10 (Fitness Score: 85.00, Excellent)
+  - Maintain balanced calorie intake. Current average: 2875 calories/day
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current average: 0.0L/day
+  - Optimize sleep to 7.5-8.5 hours for peak performance. Current average: 4.0 hours/night
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week to sustain fitness.
+
+User 11 (Fitness Score: 85.00, Excellent)
+  - Maintain balanced calorie intake. Current average: 2849 calories/day
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current average: 1.0L/day
+  - Optimize sleep to 7.5-8.5 hours for peak performance. Current average: 6.0 hours/night
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week to sustain fitness.
+
+User 12 (Fitness Score: 85.00, Excellent)
+  - Maintain balanced calorie intake. Current average: 2796 calories/day
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current average: 0.6L/day
+  - Optimize sleep to 7.5-8.5 hours for peak performance. Current average: 4.4 hours/night
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week to sustain fitness.
+
+User 13 (Fitness Score: 85.00, Excellent)
+  - Maintain balanced calorie intake. Current average: 2445 calories/day
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current average: 0.4L/day
+  - Optimize sleep to 7.5-8.5 hours for peak performance. Current average: 4.7 hours/night
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week to sustain fitness.
+
+User 14 (Fitness Score: 85.00, Excellent)
+  - Maintain balanced calorie intake. Current average: 2472 calories/day
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current average: 0.0L/day
+  - Optimize sleep to 7.5-8.5 hours for peak performance. Current average: 4.1 hours/night
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week to sustain fitness.
+
+User 15 (Fitness Score: 85.00, Excellent)
+  - Maintain balanced calorie intake. Current average: 2560 calories/day
+  - Continue hydration, aiming for 3.0-4.0 liters daily. Current average: 0.0L/day
+  - Optimize sleep to 7.5-8.5 hours for peak performance. Current average: 4.3 hours/night
+  - Incorporate high-intensity interval training (HIIT) 2-3 times/week to sustain fitness.
+
+==================================================
+End of Report
+Generated by ML Fitness Predictor
+==================================================
