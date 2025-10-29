@@ -1,0 +1,11 @@
+release/form.o
+release/homepage.o
+release/loginpage.o
+release/main.o
+release/mainwindow.o
+release/welcomepage.o
+release/moc_form.o
+release/moc_homepage.o
+release/moc_loginpage.o
+release/moc_mainwindow.o
+release/moc_welcomepage.o
